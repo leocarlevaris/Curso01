@@ -10,12 +10,13 @@ namespace Curso01.Data
         }
 
         public DbSet<Hotel> Hotels { get; set; }
-        public DbSet<Country> Countries     { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
+        
         protected override  void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Hotel>().HasData(
+            modelBuilder.Entity<Country>().HasData(
                 new Country
                 {
                     Id = 1,
@@ -34,7 +35,9 @@ namespace Curso01.Data
                     Id= 3, 
                     Name="Italy", 
                     ShortName="ITA"
-                }) ;
+                }
+
+            );
 
             modelBuilder.Entity<Hotel>().HasData(
                 new Hotel
@@ -65,6 +68,7 @@ namespace Curso01.Data
                 );
 
         }
-
+        
     }
+        
 }
